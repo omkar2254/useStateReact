@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './App.css';
 import React, { useState } from "react";
 
@@ -9,11 +10,25 @@ function App() {
   //#2 multiple states
   const [count, setCount] = useState(0);
   const [theme, setTheme] = useState('blue');
-  function decrementCount(){
-    setCount(count=>count-1);
-    setTheme('red');
+
+
+  // function decrementCount(){
+  //   setCount(count=>count-1);
+  //   
+  // }
+  
+  const decrementCount = () => setCount(count-1)
+  {
+    useEffect(() => {
+      if (count < 0) {
+        setTheme('red');
+      }
+    });
   }
-  const incrementCount = ()=> setCount(count+1);
+
+  const incrementCount = () => setCount(count + 1);
+
+  //useEffect
 
 
   return (
