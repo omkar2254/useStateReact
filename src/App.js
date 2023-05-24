@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  //UseState #1
+  const [counter, setCounter] = useState(0);
+  const handleClick = () => setCounter(counter + 1);
+
+  //#2 multiple states
+  const [count, setCount] = useState(0);
+  const [theme, setTheme] = useState('blue');
+  function decrementCount(){
+    setCount(count=>count-1);
+    setTheme('red');
+  }
+  const incrementCount = ()=> setCount(count+1);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    //practice hooks
+    <>
+      <button style={{ marginTop: '50px' }} onClick={handleClick}>Click me</button>
+      <span style={{ marginLeft: '10px' }}>counter</span>
+      <div style={{ marginTop: '0px', marginLeft: '100px' }}>{counter}</div>
+
+      <button onClick={decrementCount}>-</button>
+      <span>{count}</span>
+      <span>{theme}</span>
+      <button onClick={incrementCount}>+</button>
+    </>
   );
 }
 
