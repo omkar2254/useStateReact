@@ -22,6 +22,8 @@ function App() {
     useEffect(() => {
       if (count < 0) {
         setTheme('red');
+      }else{
+        setTheme('blue');
       }
     });
   }
