@@ -16,19 +16,35 @@ function App() {
   //   setCount(count=>count-1);
   //   
   // }
+
+  const decrementCount = () => setCount(count - 1)
+
+
+  // useEffect(() => {
+  //   if (count<0) {
+  //     setTheme('red');
+  //   }else{
+  //     setTheme('blue');
+  //   }
+  // });
+
+  useEffect(() => {
+    // This function called whenever 'count' changes
+    if (count % 2 === 0) {
+      setTheme('blue');
+    } else {
+      setTheme('red');
+    }
+
+    
+  }, [count]); 
   
-  const decrementCount = () => setCount(count-1)
-  {
-    useEffect(() => {
-      if (count < 0) {
-        setTheme('red');
-      }else{
-        setTheme('blue');
-      }
-    });
-  }
+  
 
   const incrementCount = () => setCount(count + 1);
+
+
+  
 
   //useEffect
 
